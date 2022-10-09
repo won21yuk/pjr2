@@ -1,0 +1,70 @@
+### 주의사항
+1 . mongodb에 데이터 적재된 상태에서 시행
+2. ~_count.py 파일들 전부 실행 후
+3. 마지막에 station_near파일 실행
+
+### database name
+pjt2
+
+### Schema
++----------------+--------------+------+-----+---------+-------+
+| Field            | Type         | Null | Key | Default | Extra |
++----------------+--------------+------+-----+---------+-------+
+| station_id     | varchar(10)  | NO   | PRI | NULL    |       |
+| station_addr  | varchar(100) | YES  |     | NULL    |       |
+| dong_cd       | varchar(10)  | YES  | FK | NULL    |       |
+| busstop_cnt    | int          | YES  |     | NULL    |       |
+| culture_cnt     | int          | YES  |     | NULL    |       |
+| evnet_cnt       | int          | YES  |     | NULL    |       |
+| mall_cnt        | int          | YES  |     | NULL    |       |
+| park_cnt        | int          | YES  |     | NULL    |       |
+| bikeroad_bool| int          | YES  |     | NULL    |       |
+| school_cnt     | int          | YES  |     | NULL    |       |
+| substation_cnt| int          | YES  |     | NULL    |       |
+| tour_cnt        | int          | YES  |     | NULL    |       |
++----------------+--------------+------+-----+---------+-------+
+12 rows in set (0.00 sec)
+
+### 위경도 결측치
+주소-> 위경도 변환 전 : 77개
+주소-> 위경도 변환 후 : 14개
+총 63개 변환
+
+
+### 테이블 컬럼타입 변경하기
+ALTER TABLE [테이블명] MODIFY COLUMN [변경할 컬럼명][변경할 컬럼 타입]
+ex. ALTER TABLE user_info MODIFY COLUMN name varchar(10) not null;
+
+ALTER TABLE station_near MODIFY COLUMN station_id varchar(10) not null primary key;
+ALTER TABLE station_near MODIFY COLUMN station_addr varchar(100);
+ALTER TABLE station_near MODIFY COLUMN dong_cd varchar(10);
+ALTER TABLE station_near MODIFY COLUMN bus_cn int(5);
+ALTER TABLE station_near MODIFY COLUMN sub_cn int(5);
+ALTER TABLE station_near MODIFY COLUMN school_cn int(5);
+ALTER TABLE station_near MODIFY COLUMN park_cn int(5);
+ALTER TABLE station_near MODIFY COLUMN mall_cn int(5);
+ALTER TABLE station_near MODIFY COLUMN culture_cn int(5);
+ALTER TABLE station_near MODIFY COLUMN road_cn int(5);
+ALTER TABLE station_near MODIFY COLUMN event_cn int(5);
+ALTER TABLE station_near MODIFY COLUMN tour_cn int(5);
+
+### 테이블 컬럼명 변경
+ALTER TABLE 테이블이름 RENAME COLUMN 변경전 컬럼명 TO 변경후 컬럼명;
+ex) ALTER TABLE user_info RENAME COLUMN name TO nm; 
+
+ALTER TABLE station_near RENAME COLUMN sub_cn TO substation_cnt;
+ALTER TABLE station_near RENAME COLUMN road_cn TO bikeroad_bool;
+ALTER TABLE station_near RENAME COLUMN bus_cn TO busstop_cnt;
+
+
+### 외래키(FK) 지정
+alter table [테이블명] add foreign key( [컬럼명] ) references [참조한 테이블]( [참조할 컬럼명] ) [옵션];
+ex) alter table user_info add foreign key(name) references customer(name) [옵션];
+
+옵션 : on delete cascade / on update cascade
+update는 이 값이 바뀔 때마다 나도 갱신, 
+delete는 참조하는 키가 삭제되면 나도 삭제
+
+alter table station_near add foreign key(dong_cd) references DONG_CODE(dong_cd);
+
+# 추후 하나의 파일로 합쳐야함..
