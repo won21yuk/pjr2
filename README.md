@@ -13,11 +13,12 @@
     <br>
     <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white">
     <img src="https://img.shields.io/badge/django-092E20?style=for-the-badge&logo=django&logoColor=white">
-    <img src="https://img.shields.io/badge/Apache Hadoop-66CCFF?style=for-the-badge&logo=Apache Hadoop&logoColor=white">
+    <img src="https://img.shields.io/badge/Apache Hadoop-66A1CC?style=for-the-badge&logo=Apache Hadoop&logoColor=white">
     <img src="https://img.shields.io/badge/Apache Spark-E25A1C?style=for-the-badge&logo=Apache Spark&logoColor=white">
     <img src="https://img.shields.io/badge/Apache Airflow-017CEE?style=for-the-badge&logo=Apache Airflow&logoColor=white">
     <img src="https://img.shields.io/badge/MongoDB-47A2448?style=for-the-badge&logo=MongoDB&logoColor=white">
     <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=MySQL&logoColor=white">
+    <img src="https://img.shields.io/badge/Amazon EC2-FF9900?style=for-the-badge&logo=Amazon EC2&logoColor=white">
 </div>
 <br>
 
@@ -46,14 +47,17 @@
 ![pjt2-arch](/used_data/pjt2-arch.png)
 
 # 세부 구현 내용
-- 데이터 처리 및 가공
-    - 모든 처리와 DB적재는 pyspark 파일로 작성하여 spark-submit으로 실행
+- 데이터 처리 및 적재
+  - 모든 처리와 DB적재는 pyspark 파일로 작성하여 spark-submit으로 실행
+  - 위치 데이터 
     - 1차 가공 : MongoDB 적재
         - 모든 위치 데이터는 geometry 쿼리 사용을 위해 GEOJSON 형태로 처리 및 가공
         - 총 10개의 데이터 가공 및 적재 : 대여소, 자전거 도로, 지하철역, 버스정류장, 학교, 공원, 대규모 점포, 문화공간, 관광명소, 행사장소
     - 2차 가공 : MySQL 적재
         - 대여소별 2KM 반경 내 자전거 도로, 지하철역, 버스정류장, 학교, 공원, 대규모 점포, 문화공간, 관광명소, 행사장소 수를 집계하기 위함
         - 2KM로 선정한 근거 : 네트워크 분석을 통한 공공자전거 따릉이의 이용특성에 대한 연구 - ‘다른 대여소에 반납할 때 70%는 10분 이하, 2km 이내의 짧은 거리를 이동하였으며, 같은 대여소에 반납할 때에는 30분 이상 대여하는 경우가 많았고 이용 시간보다 비교적 짧은 거리인 2~4km를 이동했다.’
+  - 위치 데이터 외 데이터
+    - 가공 및 MySQL 적재
 
 - 파이프 라인 운영
     - DAG 1. DONG_POPUL
@@ -88,6 +92,7 @@
         - 테이블 선정 기준 : 적어도 일일 단위로 업데이트되는 시계열 배치 데이터들을 최신정보로 분석 데이터셋에 반영하기 위함
     - DAG들의 DEPENDECY 설정
         - Raw data 수집 및 aws 홈디렉토리에 저장(python operator) -> HDFS로 적재(bash operator) -> 가공 및 DB적재(spark-submit operator)
+
 # 사용 데이터
 
 | no | 이름 | 출처 | 형식/방식 |
