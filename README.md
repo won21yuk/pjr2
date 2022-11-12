@@ -11,7 +11,7 @@
     <br>
     <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white">
     <img src="https://img.shields.io/badge/django-092E20?style=for-the-badge&logo=django&logoColor=white">
-    <img src="https://img.shields.io/badge/Apache Hadoop-66CCFF?style=for-the-badge&logo=Apache Hadoop&logoColor=white">
+    <img src="https://img.shields.io/badge/Apache%20Hadoop-66CCFF?style=for-the-badge&logo=Apache%20Hadoop&logoColor=white">
     <img src="https://img.shields.io/badge/Apache Spark-E25A1C?style=for-the-badge&logo=Apache Spark&logoColor=white">
     <img src="https://img.shields.io/badge/Apache Airflow-017CEE?style=for-the-badge&logo=Apache Airflow&logoColor=white">
     <img src="https://img.shields.io/badge/MongoDB-47A2448?style=for-the-badge&logo=MongoDB&logoColor=white">
