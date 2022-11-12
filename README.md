@@ -7,13 +7,11 @@
 
 본 프로젝트는 대여소 별 시공간적 특성에 따른 수요 예측을 통한 따릉이 자전거의 재배치를 목표로 합니다. 데이터 분석가가 따릉이 수요 예측에 사용할 수 있는 데이터를 제공하기 위한 데이터 파이프라인을 구축하였고 이를 통해 만들어진 데이터를 대시보드로 만들어 시각화 하였습니다.
 
-프로젝트 기간 : 2022.07.25 ~ 2022.08.17
-
 <div align=left>
     <br>
     <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=Python&logoColor=white">
     <img src="https://img.shields.io/badge/django-092E20?style=for-the-badge&logo=django&logoColor=white">
-    <img src="https://img.shields.io/badge/Apache Hadoop-66A1CC?style=for-the-badge&logo=Apache Hadoop&logoColor=white">
+    <img src="https://img.shields.io/badge/Apache Hadoop-66CCFF?style=for-the-badge&logo=Apache Hadoop&logoColor=white">
     <img src="https://img.shields.io/badge/Apache Spark-E25A1C?style=for-the-badge&logo=Apache Spark&logoColor=white">
     <img src="https://img.shields.io/badge/Apache Airflow-017CEE?style=for-the-badge&logo=Apache Airflow&logoColor=white">
     <img src="https://img.shields.io/badge/MongoDB-47A2448?style=for-the-badge&logo=MongoDB&logoColor=white">
@@ -21,6 +19,9 @@
     <img src="https://img.shields.io/badge/Amazon EC2-FF9900?style=for-the-badge&logo=Amazon EC2&logoColor=white">
 </div>
 <br>
+
+프로젝트 기간 : 2022.07.25 ~ 2022.08.17
+
 
 # 프로젝트 배경
 
