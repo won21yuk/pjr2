@@ -123,7 +123,7 @@
 # ERD
 ![pjt2-erd](/used_data/pjt2-erd.png)
 
-# Reffernce
+# Reference
 - 참고 기사
     - [https://www.motorgraph.com/news/articleView.html?idxno=29857](https://www.motorgraph.com/news/articleView.html?idxno=29857)
     - [https://www.mk.co.kr/news/society/view/2022/02/99087/](https://www.mk.co.kr/news/society/view/2022/02/99087/)
